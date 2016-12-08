@@ -1,0 +1,22 @@
+#!/usr/bin/nodejs
+var debug = require('debug')('my-application');
+var app = require('../app');
+var mongoose = require('mongoose');
+
+/*
+*	Conectamos MongoDB
+*/  
+mongoose.connect('mongodb://localhost/pizzapp');
+mongoose.connection.on('open', function(err){
+	if(err){
+		debug("No se ha podido coenctar")
+	}else{
+		debug('Conectado mongodb')	
+	}
+	
+})
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
