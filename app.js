@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-sesion');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var passport = require('.config/passport');
 var app = express();
 
 
@@ -22,6 +22,8 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'mykeypassword' }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use('/', routes);
 app.use('/user', users);
 

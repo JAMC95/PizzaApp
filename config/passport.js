@@ -31,3 +31,5 @@ passport.use(new localStrategy({
     return done(null, userinfo);
   });
 }));
+
+module exports = passport;
