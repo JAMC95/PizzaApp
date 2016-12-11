@@ -10,6 +10,6 @@ router.get('/login', function(req, res) {
 });
 router.post('/auth', function(req, res) {
   var post = req.body;
-  
+  res.redirect('/');
 });
 module.exports = router;
