@@ -9,10 +9,10 @@ nav.navbar.navbar-inverse.navbar-fixed-top
       a.navbar-brand(href='#') Pizzería Cóndor
     #navbar.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li.active
+        li(class=active == 'index' ? 'active' : 'normal')
           a(href='/') Inicio
-        li
+        li(class=active == 'order' ? 'active' : 'normal')
           a(href='/order') Pedido
-        li
+        li(class=active == 'login' ? 'active' : 'normal')
           a(href='/user/login') Login
     // /.nav-collapse
