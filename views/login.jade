@@ -2,4 +2,11 @@ extends layout
 block head 
     -var active = 'login';
 block content
-  h1 Hola login
+  form(method='POST', action="/user/auth")
+    .form-group
+      label(for='inputUser') Usuario
+      input#inputUser.form-control(type="text", placeholder="Introduzca su usuario", name="user")
+      label(for='inputPassword') Contraseña
+      input#inputPassword.form-control(type="password", name="pass")
+      button.btn.btn-lg.btn-default(type="submit", ) Enviar
+  
