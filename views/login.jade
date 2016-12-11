@@ -2,6 +2,8 @@ extends layout
 block head 
     -var active = 'login';
 block content
+  h1 Iniciar sesión
+  
   form(method='POST', action="/user/auth")
     .form-group
       label(for='inputUser') Usuario
