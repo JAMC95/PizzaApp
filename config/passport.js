@@ -1,8 +1,8 @@
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
-var _ = require('loadash');
+var _ = require('lodash');
 
-var User = require(../models/user.model);
+var User = require('../models/user.model');
 
 passport.serializeUser(function(user, done) {
     done(null, user._id);
@@ -32,4 +32,4 @@ passport.use(new localStrategy({
   });
 }));
 
-module exports = passport;
+module.exports = passport;
