@@ -1,6 +1,17 @@
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
+var _ = require('loadash');
 
+passport.serializeUser(function(user, done) {
+    done(null, user._id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id,function(err, user) {
+    var userinfo = _.pick(user,'username', 'email', '_id');
+    done(err,user);
+  })
+});
 var User = require(../models/user.model)
 passport.use(new localStrategy({
   usernameField: 'user',
@@ -14,6 +25,7 @@ passport.use(new localStrategy({
     if(user.password != password){
       return done(null, false, {message: 'La contraseña no es válida'})
     }
-    
+    debug("Usuario autenticado");
+    return done(null, user);
   });
 }));
