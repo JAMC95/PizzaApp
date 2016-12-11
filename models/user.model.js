@@ -17,5 +17,7 @@
  	}
  })
 
+userSchema.statics.findByUsername = function(username, cb) {
+  this.model('user').finOne({username: username}, cb);
+}
  module.export = mongoose.model('user', userSchema);
- 
