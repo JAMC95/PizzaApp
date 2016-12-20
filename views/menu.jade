@@ -15,7 +15,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
           a(href='/order') Pedidos
         if user 
           li 
-            p Hola #{user.username}
+            a Hola #{user.username}
         else
           li(class=active == 'login' ? 'active' : 'normal')
             a(href='/user/login') Login
