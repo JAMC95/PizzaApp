@@ -16,6 +16,11 @@ router.get('/logout', function(req, res) {
 
 })
 
+router.get('/register', function(req, res) {
+  res.render('register');
+
+})
+
 var passportAuth =  passport.authenticate('local',{failureRedirect: 'login', failureFlash:false});
 
 router.post('/auth',passportAuth, function(req, res) {

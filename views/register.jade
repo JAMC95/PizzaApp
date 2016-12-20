@@ -2,16 +2,21 @@ extends layout
 block head 
     -var active = 'login';
 block content
-  h1 Iniciar sesión
+  h1 Crea tu cuenta
   
-  form(method='POST', action="/user/auth")
+  form(method='POST', action="/user/register")
     .form-group
       label(for='inputUser') Usuario
       input#inputUser.form-control(type="text", placeholder="Introduzca su usuario", name="user")
+    .form-group    
       label(for='inputPassword') Contraseña
       input#inputPassword.form-control(type="password", name="pass")
-      | ¿No tienes una cuenta? Registrate haciendo 
-      a(href="/user/register") click aquí.
+    .form-group
+      label(for='inputPassword2') Repite la contraseña
+      input#inputPassword2.form-control(type="password", name="pass2")
+    .form-group
+      label(for='inputEmail') Email
+      input#inputEmail.form-control(type="email", name="email")    
       br/
       button.btn.btn-lg.btn-default(type="submit", ) Enviar
   
