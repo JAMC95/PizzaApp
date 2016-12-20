@@ -16,6 +16,8 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         if user 
           li 
             a Hola #{user.username}
+          li(class=active=='login'?'active':'normal')
+            a(href="user/logout") Logout
         else
           li(class=active == 'login' ? 'active' : 'normal')
             a(href='/user/login') Login
