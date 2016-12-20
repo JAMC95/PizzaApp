@@ -18,5 +18,11 @@ block content
       label(for='inputEmail') Email
       input#inputEmail.form-control(type="email", name="email")    
       br/
+      if validationErrors
+          ul
+              each error validationErrors
+                li #{error}
+                //- code...
+      br/
       button.btn.btn-lg.btn-default(type="submit", ) Enviar
   
