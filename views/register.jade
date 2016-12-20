@@ -20,7 +20,7 @@ block content
       br/
       if validationErrors
           ul
-              each error validationErrors
+              each error in validationErrors
                 li #{error}
                 //- code...
       br/
