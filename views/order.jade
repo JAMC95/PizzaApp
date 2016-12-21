@@ -5,7 +5,7 @@ block content
   h1 Realiza tu pedido
   
   form(method='POST', action="/order/submit")
-      input(type="hidden", name="customer", value='#user._id')
+      input(type="hidden", name="customer", value='#{user._id}')
     .form-group
       label(for='inputName') Usuario:
       input#inputName.form-control(type="text", name="name", value="#{user.username}", disabled='true')
