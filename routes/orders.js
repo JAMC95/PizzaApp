@@ -9,7 +9,14 @@ function ensureAuthenticated(req, res, next) {
 router.get('/', ensureAuthenticated, function(req, res) {
   res.render('order', {user: req.user});
 });
-
+router.get('/:order', ensureAuthenticated, function(req, res) {
+  Order.findOne({_id: req.params.order})
+  .populate('user')
+  .exec(function(err, order) {
+    if(err) throw err;
+    res.render('ordered', {order:order});
+  })
+})
 router.post('/submit', ensureAuthenticated, function(req, res) {
     var form = req.body;
     var user = req.user;
@@ -19,7 +26,7 @@ router.post('/submit', ensureAuthenticated, function(req, res) {
     if(form.customer && form.pizza) {
       Order.create(form, function(err, created) {
 
-          return res.render('ordered', {order: created });
+          return res.redirect('/order/' + created._id);
       });
 
     } else {

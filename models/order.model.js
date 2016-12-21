@@ -11,6 +11,9 @@
  		enum: ['pending', 'cooking', 'ready'],
  		default: 'pending'
  	},
+  pizza: {
+    type: String
+  },
  	order_date: {
  		type: Date,
  		default: Date.now
