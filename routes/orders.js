@@ -10,7 +10,7 @@ router.get('/', ensureAuthenticated, function(req, res) {
   res.render('order', {user: req.user});
 });
 router.get('/:order', ensureAuthenticated, function(req, res) {
-  Order.findOne({_id: req.params.order})
+  Order.findOne({_id: req.params.order, customer: req.user._id})
   .populate('customer')
   .exec(function(err, order) {
     if(err) throw err;
