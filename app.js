@@ -24,8 +24,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'mykeypassword' }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use('/', routes);
+
 app.use('/user', users);
+
+app.use('/order', require('./routes/orders'));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
