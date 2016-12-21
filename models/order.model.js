@@ -23,4 +23,4 @@
 
  })
 
-  module.export = mongoose.model('order', orderSchema);
+  module.exports = mongoose.model('order', orderSchema);

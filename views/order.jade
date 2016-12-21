@@ -6,22 +6,25 @@ block content
   
   form(method='POST', action="/order/submit")
       input(type="hidden", name="customer", value='#{user._id}')
-    .form-group
-      label(for='inputName') Usuario:
-      input#inputName.form-control(type="text", name="name", value="#{user.username}", disabled='true')
-    .form-group    
-      label(for='inputEmail') Email:
-      input#inputEmail.form-control(type="email", name="email", value="#{user.email}")    
-    .form-group
-      label(for='inputPizza') Introduce una pizza:
-      input#inputPizza.form-control(type="text", name="pizza")
-    .form-group
-      
-      br/
-      if validationErrors
-          ul
-              each error in validationErrors
-                li #{error}
-      br/
-      button.btn.btn-lg.btn-default(type="submit", ) Enviar
+      .form-group
+        label(for='inputName') Usuario:
+        input#inputName.form-control(type="text", name="name", value="#{user.username}", disabled='true')
+      .form-group    
+        label(for='inputEmail') Email:
+        input#inputEmail.form-control(type="email", name="email", value="#{user.email}")    
+      .form-group
+        label(for='inputPizza') Introduce una pizza:
+        select#inputPizza.form-control(name="pizza")
+          option Margarita
+          option Cuatrto quesos
+          option Barbacoa 
+        
+        .form-group
+        br/
+        if validationErrors
+            ul
+                each error in validationErrors
+                  li #{error}
+        br/
+        button.btn.btn-lg.btn-default(type="submit") Enviar
   
