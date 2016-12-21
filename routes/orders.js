@@ -18,7 +18,8 @@ router.post('/submit', ensureAuthenticated, function(req, res) {
 
     if(form.customer && form.pizza) {
       Order.create(form, function(err, created) {
-          return res.json(created);
+
+          return res.render('ordered', {order: created });
       });
 
     } else {
