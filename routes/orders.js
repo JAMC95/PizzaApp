@@ -14,7 +14,8 @@ router.get('/:order', ensureAuthenticated, function(req, res) {
   .populate('customer')
   .exec(function(err, order) {
     if(err) throw err;
-    res.render('ordered', {order:order});
+    if(order) res.render('ordered', {order:order});
+    else res.redirect('/');
   })
 })
 router.post('/submit', ensureAuthenticated, function(req, res) {
